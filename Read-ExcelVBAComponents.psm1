@@ -27,20 +27,22 @@ function Read-ExcelVBAComponents(){
     Param(
         [Parameter(Mandatory=$true)]$workbookPath
     )
-    Try{
+    try{
         if(!(Test-Path $workbookPath)){
             Throw "workbookPath not found."
         }
     }
-    Catch
+    catch
     {
-        Throw "Bad workbookPath input."
+        Throw "Bad workbookPath input"
     }
+    Import-Module "$PSScriptRoot\Modules\PSExcel"
     #Import-Module -Name ($PSScriptRoot + "\1.0\PSExcel\")
     if (Get-Module -ListAvailable -Name PSExcel) {
         #Write-Host "Module exists"
     } else {
-        Install-Module PSExcel
+        #Install-Module PSExcel
+        Import-Module "$PSScriptRoot\Tests\PSExcel"
     }
 
     Get-Command -Module PSExcel | Out-Null
