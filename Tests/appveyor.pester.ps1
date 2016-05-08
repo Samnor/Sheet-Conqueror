@@ -1,4 +1,4 @@
-
+Import-Module $PSScriptRoot\..\Read-ExcelVBAComponents.psm1
 
 Describe 'Read-ExcelVBAComponents' {
     Context 'Strict mode' {
