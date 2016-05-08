@@ -42,7 +42,7 @@ function Read-ExcelVBAComponents(){
         #Write-Host "Module exists"
     } else {4
         #Install-Module PSExcel
-        Import-Module "$PSScriptRoot\Tests\PSExcel"
+        #Import-Module "$PSScriptRoot\Tests\PSExcel"
     }
 
     Get-Command -Module PSExcel | Out-Null
