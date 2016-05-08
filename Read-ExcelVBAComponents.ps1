@@ -31,6 +31,13 @@ function Read-ExcelVBAComponents(){
     if(!(Test-Path $workbookPath)){
         Write-Verbose "workbookPath not found."
     }
+    #Import-Module -Name ($PSScriptRoot + "\1.0\PSExcel\")
+    if (Get-Module -ListAvailable -Name PSExcel) {
+        #Write-Host "Module exists"
+    } else {
+        Install-Module PSExcel
+    }
+
     Get-Command -Module PSExcel | Out-Null
     $returnArray = [System.Collections.ArrayList]@()
     $excelObj = New-Excel -Path $workbookPath
