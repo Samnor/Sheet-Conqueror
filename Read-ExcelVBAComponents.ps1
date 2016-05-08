@@ -22,7 +22,6 @@ function Read-ExcelVBAComponents(){
     .NOTES
     Dependencies: PSExcel 
     Started writing this function 8th may 2016.
-
     #>
     [cmdletbinding()]
     Param(
