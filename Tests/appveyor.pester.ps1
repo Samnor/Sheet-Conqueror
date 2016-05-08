@@ -2,7 +2,7 @@ Import-Module $PSScriptRoot\..\Read-ExcelVBAComponents.psm1 -Force
 
 $correctPath = "$PSScriptRoot\..\Test Dir\Equity Research\Models\Ericsson.xlsm"
 
-$readComponents = Read-ExcelVBAComponents $testPath
+$readComponents = Read-ExcelVBAComponents $correctPath
 $readComponents | % { $_.Code}
 
 
