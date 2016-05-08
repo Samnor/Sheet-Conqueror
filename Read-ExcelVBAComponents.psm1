@@ -36,11 +36,11 @@ function Read-ExcelVBAComponents(){
     {
         Throw "Bad workbookPath input"
     }
-    Import-Module "$PSScriptRoot\Modules\PSExcel"
+    Import-Module "$PSScriptRoot\Modules\PSExcel\1.0\PSExcel.psm1"
     #Import-Module -Name ($PSScriptRoot + "\1.0\PSExcel\")
     if (Get-Module -ListAvailable -Name PSExcel) {
         #Write-Host "Module exists"
-    } else {
+    } else {4
         #Install-Module PSExcel
         Import-Module "$PSScriptRoot\Tests\PSExcel"
     }
@@ -54,9 +54,7 @@ function Read-ExcelVBAComponents(){
     $returnArray
 }
 
-
 #$testPath = "C:\Users\Samuel\Desktop\CURRENT\Posh VBA\Test Dir\Equity Research\Models\Ericsson.xlsm"
 
 #$readComponents = Read-ExcelVBAComponents $testPath
 #$readComponents | % { $_.Code} 
-

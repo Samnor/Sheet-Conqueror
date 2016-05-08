@@ -5,7 +5,6 @@ $correctPath = "$PSScriptRoot\..\Test Dir\Equity Research\Models\Ericsson.xlsm"
 $readComponents = Read-ExcelVBAComponents $correctPath
 $readComponents | % { $_.Code}
 
-
 Describe 'Read-ExcelVBAComponents' {
     Context 'Strict mode' {
         
