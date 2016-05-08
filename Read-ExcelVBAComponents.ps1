@@ -28,7 +28,7 @@ function Read-ExcelVBAComponents(){
         [Parameter(Mandatory=$true)]$workbookPath
     )
     if(!(Test-Path $workbookPath)){
-        Write-Verbose "workbookPath not found."
+        Throw "workbookPath not found."
     }
     #Import-Module -Name ($PSScriptRoot + "\1.0\PSExcel\")
     if (Get-Module -ListAvailable -Name PSExcel) {
@@ -46,9 +46,4 @@ function Read-ExcelVBAComponents(){
     $returnArray
 }
 
-
-#$testPath = "C:\Users\Samuel\Desktop\CURRENT\Posh VBA\Test Dir\Equity Research\Models\Ericsson.xlsm"
-
-#$readComponents = Read-ExcelVBAComponents $testPath
-#$readComponents | % { $_.Code} 
 
