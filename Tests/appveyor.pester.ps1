@@ -1,9 +1,15 @@
 Import-Module $PSScriptRoot\..\Read-ExcelVBAComponents.psm1 -Force
 
+# Prepartions for pester tests below
 $correctPath = "$PSScriptRoot\..\Test Dir\Equity Research\Models\Ericsson.xlsm"
-
 $readComponents = Read-ExcelVBAComponents $correctPath
-$readComponents | % { $_.Code}
+$readComponents | ForEach-Object {
+    if($_.name -eq "Main"){
+        $codeTest = $_.Code -match "sub subname"
+        $_.Code
+    }
+}
+
 
 Describe 'Read-ExcelVBAComponents' {
     Context 'Strict mode' {
@@ -17,8 +23,8 @@ Describe 'Read-ExcelVBAComponents' {
         It "should not throw an error when the path is valid" {
             {Read-ExcelVBAComponents $correctPath} | Should Not Throw
         }
-
-
-
+        It "should find sub within main module in Ericsson.xlsm" {
+            $codeTest | Should Be $True
+        }
     }
 }
