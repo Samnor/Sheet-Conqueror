@@ -6,10 +6,8 @@ $readComponents = Read-ExcelVBAComponents $correctPath
 $readComponents | ForEach-Object {
     if($_.name -eq "Main"){
         $codeTest = $_.Code -match "sub subname"
-        $_.Code
     }
 }
-
 
 Describe 'Read-ExcelVBAComponents' {
     Context 'Strict mode' {
